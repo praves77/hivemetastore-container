@@ -21,11 +21,12 @@ ENV HADOOP_HOME /opt/hadoop
 
 COPY --from=builder ${HIVE_HOME} ${HIVE_HOME}/
 COPY --from=builder ${HADOOP_HOME} ${HADOOP_HOME}/
+
 # ADD jars/hadoop-aws-2.8.5.jar /opt/hive/lib/
 # ADD jars/aws-java-sdk-core-1.11.414.jar /opt/hive/lib/
 # ADD jars/aws-java-sdk-kms-1.11.414.jar /opt/hive/lib/
 # ADD jars/aws-java-sdk-s3-1.11.414.jar /opt/hive/lib/
-ADD jars/*.jar /opt/hive/lib/
+# ADD jars/*.jar /opt/hive/lib/
 
 ENTRYPOINT [ "/opt/hive/bin/hive" ]
 CMD [ "--service", "metastore" ]
