@@ -17,9 +17,12 @@ RUN curl ${HADOOP} | tar -zx && \
 
 FROM ${BASE_IMAGE}
 
-# RUN yum -y install java-1.8.0-openjdk which
+ARG HADOOP_VER
+ARG HIVE_VER
 
+# RUN yum -y install java-1.8.0-openjdk which
 # ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
+
 ENV HIVE_HOME /opt/hive
 ENV HADOOP_HOME /opt/hadoop
 
@@ -31,6 +34,7 @@ COPY --from=builder ${HADOOP_HOME} ${HADOOP_HOME}/
 # ADD jars/aws-java-sdk-kms-1.11.414.jar /opt/hive/lib/
 # ADD jars/aws-java-sdk-s3-1.11.414.jar /opt/hive/lib/
 ADD jars/*.jar /opt/hive/lib/
+ADD jars/hadoop-${HADOOP_VER}/*.jar  /opt/hive/lib/
 
 ENTRYPOINT [ "/opt/hive/bin/hive" ]
 CMD [ "--service", "metastore" ]

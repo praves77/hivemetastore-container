@@ -6,10 +6,10 @@ hivemetastore: build push clean
 # BASE_IMAGE = centos:centos7.5.1804
 BASE_IMAGE = openjdk:8-jre
 
-HADOOP_VER = 2.9.0
-HIVE_VER = 2.3.4
-# HADOOP_VER = 3.1.1
-# HIVE_VER = 3.1.1
+# HADOOP_VER = 2.9.2
+# HIVE_VER = 2.3.4
+HADOOP_VER = 3.1.2
+HIVE_VER = 3.1.1
 
 # hive service's image and tag
 IMAGE_NAME = hivemetastore
@@ -34,5 +34,5 @@ push:
 	$(DOCKER) push $(REGISTRY)/$(REPO)/$(IMAGE_NAME):$(IMAGE_TAG)
 
 clean:
-	$(DOCKER) rmi $(REGISTRY)/$(REPO)/$(IMAGE_NAME):$(IMAGE_TAG) || :
-	$(DOCKER) rmi $(REGISTRY)/$(REPO)/$(IMAGE_NAME):latest || :
+	# $(DOCKER) rmi $(REGISTRY)/$(REPO)/$(IMAGE_NAME):$(IMAGE_TAG) || :
+	# $(DOCKER) rmi $(REGISTRY)/$(REPO)/$(IMAGE_NAME):latest || :
