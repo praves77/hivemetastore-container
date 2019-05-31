@@ -4,7 +4,7 @@ FROM ${BASE_IMAGE} as builder
 ARG HADOOP_VER
 ARG HIVE_VER
 
-ARG HADOOP="http://apache.claz.org/hadoop/common/hadoop-${HADOOP_VER}/hadoop-${HADOOP_VER}.tar.gz"
+ARG HADOOP="https://apache.claz.org/hadoop/common/hadoop-${HADOOP_VER}/hadoop-${HADOOP_VER}.tar.gz"
 ARG HIVE="https://archive.apache.org/dist/hive/hive-${HIVE_VER}/apache-hive-${HIVE_VER}-bin.tar.gz"
 
 WORKDIR /opt
